@@ -3,6 +3,7 @@ import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 import Header from '../Header/Header.jsx';
 import './App.css';
+import FormList from '../FormList/FormList.jsx';
 
 
 function App() {
@@ -25,13 +26,11 @@ function App() {
         console.log('in useEffect');
         getItems();
     }, [])
-
+    console.log(itemList);
     return (
         <div className="App">
             <Header />
-            <main>
-                <p>Under Construction...</p>
-            </main>
+            <FormList />
         </div>
     );
 }
