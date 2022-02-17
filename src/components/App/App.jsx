@@ -4,10 +4,17 @@ import React, {useState, useEffect} from 'react';
 import Header from '../Header/Header.jsx';
 import './App.css';
 import FormList from '../FormList/FormList.jsx';
+import Display from '../Display/Display'
 
 
 function App() {
     let [itemList, setItemList] = useState([]);
+
+    useEffect(() =>{
+        console.log('in useEffect');
+        getItems();
+        console.log(itemList);
+    }, []);
 
     const getItems = () => {
         console.log('in getItems');
@@ -22,15 +29,26 @@ function App() {
             console.log('Error getting list', error);
         })
     }
+
     useEffect(() =>{
         console.log('in useEffect');
         getItems();
     }, [])
     console.log(itemList);
+
+  
+
+    // console.log(itemList);
     return (
         <div className="App">
             <Header />
-            <FormList />
+            <main>
+                <Display
+                list ={itemList}
+                />
+                <FormList />
+            </main>
+
         </div>
     );
 }
