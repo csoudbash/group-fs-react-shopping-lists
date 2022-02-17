@@ -15,5 +15,5 @@ VALUES ('apples', '5', ''),
 ('bread', '5', 'loaves'),
 ('rice', '2.4', 'pounds');
 
-DROP TABLE "items";
+DELETE FROM "items";
 
