@@ -1,7 +1,7 @@
-import React from 'react';
-import axios from 'axios'
-import React, {useState, useEffect} from 'react'
-import Header from '../Header/Header.jsx'
+
+import axios from 'axios';
+import React, {useState, useEffect} from 'react';
+import Header from '../Header/Header.jsx';
 import './App.css';
 
 
@@ -21,6 +21,11 @@ function App() {
             console.log('Error getting list', error);
         })
     }
+    useEffect(() =>{
+        console.log('in useEffect');
+        getItems();
+    }, [])
+
     return (
         <div className="App">
             <Header />
