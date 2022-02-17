@@ -1,18 +1,39 @@
 import {useState} from 'react';
-
+import axios from 'axios';
 function FormList() {
 
     
     const [newItemName, setItemName] = useState('');
     const [newItemQuantity, setItemQuantity] = useState('');
     const [newItemUnit, setItemUnit] = useState('');
+
     const handleSubmit = (event) => {
-        console.log('new item submitted!')
-    }
+        event.preventDefault();
         console.log('new item submitted!')
 
+        axios({
+            method: 'POST',
+            url: '/list',
+            data: {
+                name: newItemName,
+                quantity: newItemQuantity,
+                unit: newItemUnit
+            }
+        })
+            .then((response) => {
+                console.log('Response:', response);
+                //Clear Inputs & State
+                setItemName('');
+                setItemQuantity('');
+                setItemUnit('');
+            })
+            .catch(function (error) {
+                console.log('Error on add:', error);
+            });
+    };
+    
     return(
-        <form>
+        <form onSubmit={handleSubmit}>
             <label>Name:</label>
             <input type="text"
                 onChange={(event) => setItemName(event.target.value)}
@@ -33,7 +54,7 @@ function FormList() {
                 value={newItemUnit}
             
             />
-            <button type="submit" onSubmit={handleSubmit}>Save</button>
+            <button type="submit">Save</button>
 
         </form>
     )

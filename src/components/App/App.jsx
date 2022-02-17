@@ -10,20 +10,14 @@ import Display from '../Display/Display'
 function App() {
     let [itemList, setItemList] = useState([]);
 
-    useEffect(() =>{
-        console.log('in useEffect');
-        getItems();
-        console.log(itemList);
-    }, []);
-
     const getItems = () => {
-        console.log('in getItems');
+        // console.log('in getItems');
         axios({
             method: 'GET',
             url: '/list'
         }).then( (response) => {
             console.log('Entire response is', response);
-            console.log('Just data', response.data);
+            // console.log('Just data', response.data);
             setItemList(response.data);
         }).catch((error) => {
             console.log('Error getting list', error);
@@ -34,7 +28,7 @@ function App() {
         console.log('in useEffect');
         getItems();
     }, [])
-    console.log(itemList);
+    // console.log(itemList);
 
   
 
