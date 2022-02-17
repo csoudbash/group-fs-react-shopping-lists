@@ -46,7 +46,7 @@ function App() {
                 <Display
                 list ={itemList}
                 />
-                <FormList />
+                {/* <FormList /> */}
             </main>
 
         </div>

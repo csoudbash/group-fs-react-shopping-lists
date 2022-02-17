@@ -1,3 +1,5 @@
+import Items from '../Items/Items';
+
 function DisplayItems({list}){
     console.log('in DisplayItems');
     console.log(('list is', list));
@@ -5,7 +7,11 @@ function DisplayItems({list}){
         <>
         <ul>
          {list.map(item => 
-            <li key={item.id}>{item.name}</li>)}
+            <Items key={item.id}
+             item={item}
+            />
+            
+            )}
         </ul>
         </>
     )
