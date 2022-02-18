@@ -22,6 +22,7 @@ function FormList() {
         })
             .then((response) => {
                 console.log('Response:', response);
+                
                 //Clear Inputs & State
                 setItemName('');
                 setItemQuantity('');
