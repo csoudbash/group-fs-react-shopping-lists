@@ -46,12 +46,12 @@ router.delete('/:id', (req,res)=>{
   })
 
   router.put('/:id', (req, res) => {
-    let valueArrays= [req.body.isPurchased, req.params.id];
-    console.log('Here is the req.body.isPurchased', req.body.isPurchased);
+    let valueArrays= [req.body.ispurchased, req.params.id];
+    console.log('Here is the req.body.isPurchased', req.body.ispurchased);
     
     const queryText = `
     UPDATE "items"
-    SET "isPurchased" = $1
+    SET "ispurchased" = $1
     WHERE "id" = $2;
     `;
     pool.query(queryText, valueArrays)

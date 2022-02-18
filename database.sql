@@ -8,7 +8,7 @@ CREATE TABLE items (
 	name varchar(80),
 	quantity DECIMAL,
 	unit varchar(20),
-	isPurcashed BOOLEAN DEFAULT FALSE
+	ispurchased BOOLEAN DEFAULT FALSE
 );
 INSERT INTO "items" ( "name", "quantity", "unit") 
 VALUES ('apples', '5', ''),

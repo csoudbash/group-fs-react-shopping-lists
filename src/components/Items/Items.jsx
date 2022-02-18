@@ -14,7 +14,7 @@ function Items({ item, purchaseItem, deleteItem }) {
             <li key={item.id}>
                 {item.quantity} {item.unit} {item.name}
 
-                {item.ispurchased ?
+                {!item.ispurchased ?
                     <ButtonsRender item={item}
                         purchaseItem={purchaseItem}
                         deleteItem = {deleteItem}/>  

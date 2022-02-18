@@ -13,16 +13,16 @@ function App() {
     
     const deleteItem = (id) => {
         console.log('It made it back to app.jsx! Deleting', id)
-        // axios({
-        //     method: 'DELETE',
-        //     url: `/delete/${id}`
-        // })
-        //     .then((response) => {
-        //         console.log('DELETE response.data is', response.data)
-        //         fetchStudents();
-        //     }).catch((err) => {
-        //         console.log('DELETE error is', err)
-        //     })
+        axios({
+            method: 'DELETE',
+            url: `/list/${id}`
+        })
+            .then((response) => {
+                console.log('DELETE response.data is', response.data)
+                getItems();
+            }).catch((err) => {
+                console.log('DELETE error is', err)
+            })
     }
 
     const getItems = () => {
@@ -45,7 +45,7 @@ function App() {
             method: 'PUT',
             url: `/list/${id}`,
             data: {
-                isPurchased: 'TRUE'
+                ispurchased: 'TRUE'
             }
         })
             .then((response) => {
