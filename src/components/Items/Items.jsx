@@ -1,26 +1,27 @@
 // import {useState} from 'react';
 import './Items.css';
+import ButtonsRender from '../Buttons/Buttons'
 
-function Items({item, purchaseItem, deleteItem}){
+function Items({ item, purchaseItem, deleteItem }) {
 
-    const handlePurchase = () => {
-        console.log('Item purchased');
-        purchaseItem(item.id)
-    }
     
-    const handleDelete = () => {
-        console.log('hello!');
-        deleteItem(item.id)
-    }
 
+    
+
+    console.log('item is purchased:', item)
     return (
-        <>
-        <li key={item.id}>
-        {item.quantity} {item.unit} {item.name}  
-        </li> 
-         <button onClick={handleDelete}>Delete!</button>
-         <button onClick={handlePurchase}>Purchase!</button>
-        </>
+
+            <li key={item.id}>
+                {item.quantity} {item.unit} {item.name}
+
+                {item.ispurchased ?
+                    <ButtonsRender item={item}
+                        purchaseItem={purchaseItem}
+                        deleteItem = {deleteItem}/>  
+                    : <p>Purchased</p>
+                }
+
+        </li>
     )
 
 
