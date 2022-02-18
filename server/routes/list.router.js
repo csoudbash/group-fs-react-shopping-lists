@@ -32,5 +32,38 @@ router.post('/', (req, res) => {
         });
 });
 
+router.delete('/:id', (req,res)=>{
+    let reqId = req.params.id;
+    console.log('Delete ID', reqId);
+    let queryText = `DELETE FROM "items" WHERE id = $1;`;
+    pool.query(queryText, [reqId])
+    .then((result)=>{
+        console.log('Item deleted');
+        res.sendStatus(200);
+    }).catch((error)=>{
+        console.log('Error making database query', queryText, error);
+    })
+  })
+
+  router.put('/:id', (req, res) => {
+    let valueArrays= [req.body.isPurchased, req.params.id];
+    console.log('Here is the req.body.isPurchased', req.body.isPurchased);
+    
+    const queryText = `
+    UPDATE "items"
+    SET "isPurchased" = $1
+    WHERE "id" = $2;
+    `;
+    pool.query(queryText, valueArrays)
+    .then(result => {
+        res.sendStatus(200);
+    }).catch(err => {
+        console.log('Here is the error', err);
+        
+        res.sendStatus(500);
+    });
+});
+
+
 
 module.exports = router;
